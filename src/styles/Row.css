@@ -1,0 +1,35 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Row {
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+.Row_images {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.Row_image {
+    width: 25%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-top: 5px;
+    margin-right: 15px;
+    transition: all .3s ease-in-out;
+}
+
+.Row_image:hover {
+    transform: scale(1.08);
+}
+
+.Row_images::-webkit-scrollbar {
+    display: none;
+}

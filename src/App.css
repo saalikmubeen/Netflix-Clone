@@ -1,0 +1,13 @@
+@font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.author {
+    position: fixed;
+    top: 1px;
+    right: 3px;
+    font-size: 15px;
+    font-family: neon;
+    color: #fed128;
+}

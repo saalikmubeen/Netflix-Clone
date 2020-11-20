@@ -1,0 +1,42 @@
+.Header {
+    min-height: 70vh;
+    color: white;
+    padding-left: 6rem;
+    padding-top: 10rem;
+}
+
+.Header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.Header p {
+    max-width: 45rem;
+    line-height: 1.3rem;
+    padding-top: 1rem;
+    font-size: 1rem;
+}
+
+.Header_btns button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    border-radius: .2rem;
+    margin-right: 2rem;
+    padding: 1.5rem 2rem;
+    background-color: rgba(51, 51, 51, 0.5);
+}
+
+.Header_btns button:hover {
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s ease;
+}
+
+.Header_bottom {
+    height: 10vh;
+    background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, .61, ), #111);
+}

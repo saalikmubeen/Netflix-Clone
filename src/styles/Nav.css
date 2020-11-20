@@ -1,0 +1,21 @@
+.Nav {
+    display: flex;
+    width: 100%;
+    padding: 7px;
+    position: fixed;
+    justify-content: space-between;
+    top: 0;
+    transition: all 0.5s ease-in;
+}
+
+.Nav_black {
+    background: black;
+}
+
+.Nav_logo {
+    width: 100px;
+}
+
+.Nav_smiley {
+    width: 70px;
+}
