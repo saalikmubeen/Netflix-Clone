@@ -1,23 +1,38 @@
-import React from "react";
+import React, {useContext} from "react";
+import {Route, Switch, Redirect} from "react-router-dom";
 import "./App.css";
-import Row from "./components/Row";
-import Header from "./components/Header";
-import Nav from "./components/Nav";
+import MoviesPage from "./pages/moviespage/MoviesPage";
+import HomePage from "./pages/homepage/HomePage";
+import CategoryPage from "./pages/categorypage/CategoryPage";
+import SignInPage from "./pages/signinpage/SignInPage";
+import {UserContext} from "./contexts/UserContext";
 
 function App(){
+     let user = useContext(UserContext);
   return (
-    <>
-      <Nav/>
-      <Header/>
-      <Row type="fetchTrending" genre="Trending" isLarge/>
-      <Row type="fetchNetflixOriginals" genre="Netflix Originals"/>
-      <Row type="fetchTopRated" genre="Top Rated"/>
-      <Row type="fetchActionMovies" genre="Action Movies"/>
-      <Row type="fetchComedyMovies" genre="ComedyMovies"/>
-      <Row type="fetchHorrorMovies" genre="Horror Movies"/>
-      <Row type="fetchRomanceMovies" genre="Romance Movies"/>
-      <Row type="fetchDocumentaries" genre="Documentaries"/>
-    </>
+    <Switch>
+      {!user ?
+       <>
+          <Route path="/" exact component={HomePage}/>
+          <Route path="/signIn" exact render={(routeProps) => <SignInPage {...routeProps} method="signIn" />}/>
+          <Route path="/signUp" exact render={(routeProps) => <SignInPage {...routeProps} method="signUp" />}/>
+          <Redirect to="/"/>
+       </>
+            :
+      <>
+          <Route path="/movies" exact component={MoviesPage}/>
+          <Route path="/category/action" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchActionMovies" genre="Action Movies"/>}/>
+          <Route path="/category/horror" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchHorrorMovies" genre="Horror Movies"/>}/>
+          <Route path="/category/comedy" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchComedyMovies" genre="ComedyMovies"/>}/>
+          <Route path="/category/top_rated" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchTopRated" genre="Top Rated"/>}/>
+          <Route path="/category/netflix_originals" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchNetflixOriginals" genre="Netflix Originals"/>}/>
+          <Route path="/category/romance" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchRomanceMovies" genre="Romance Movies"/>}/>
+          <Route path="/category/trending" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchTrending" genre="Trending"/>}/>
+          <Route path="/category/trending" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchDocumentaries" genre="Documentaries"/>}/>
+          <Redirect to="/movies"/>
+       </>
+      }
+    </Switch>
   )
 }
 
